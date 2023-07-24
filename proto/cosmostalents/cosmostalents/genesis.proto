@@ -1,0 +1,12 @@
+syntax = "proto3";
+package cosmostalents.cosmostalents;
+
+import "gogoproto/gogo.proto";
+import "cosmostalents/cosmostalents/params.proto";
+
+option go_package = "github.com/cosmos-talents/cosmos-talents/x/cosmostalents/types";
+
+// GenesisState defines the cosmostalents module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+}

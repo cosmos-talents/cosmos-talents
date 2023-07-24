@@ -1,0 +1,7 @@
+syntax = "proto3";
+package cosmostalents.cosmostalents;
+
+option go_package = "github.com/cosmos-talents/cosmos-talents/x/cosmostalents/types";
+
+// Msg defines the Msg service.
+service Msg {}
