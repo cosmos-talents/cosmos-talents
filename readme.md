@@ -50,3 +50,20 @@ curl https://get.ignite.com/cosmos-talents/cosmos-talents@latest! | sudo bash
 - [Ignite CLI docs](https://docs.ignite.com)
 - [Cosmos SDK docs](https://docs.cosmos.network)
 - [Developer Chat](https://discord.gg/ignite)
+
+### Run query
+#### Start chain
+```
+ignite chain serve
+```
+
+`serve` command installs dependencies, builds, initializes, and starts your blockchain in development.
+
+#### Run the cosmos-talent query
+```
+cosmos-talentsd query cosmostalents say-hello Alice
+```
+The result is
+```
+name: Hello, Alice
+```
