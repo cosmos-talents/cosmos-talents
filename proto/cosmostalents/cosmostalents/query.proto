@@ -6,6 +6,7 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "cosmostalents/cosmostalents/params.proto";
+import "cosmostalents/cosmostalents/info.proto";
 
 option go_package = "github.com/cosmos-talents/cosmos-talents/x/cosmostalents/types";
 
@@ -21,6 +22,12 @@ service Query {
   // Queries a list of SayHello items.
   rpc SayHello (QuerySayHelloRequest) returns (QuerySayHelloResponse) {
     option (google.api.http).get = "/cosmos-talents/cosmos-talents/cosmostalents/say_hello/{name}";
+  
+  }
+  
+  // Queries a Info by index.
+  rpc Info (QueryGetInfoRequest) returns (QueryGetInfoResponse) {
+    option (google.api.http).get = "/cosmos-talents/cosmos-talents/cosmostalents/info";
   
   }
 }
@@ -40,5 +47,11 @@ message QuerySayHelloRequest {
 
 message QuerySayHelloResponse {
   string name = 1;
+}
+
+message QueryGetInfoRequest {}
+
+message QueryGetInfoResponse {
+  Info Info = 1 [(gogoproto.nullable) = false];
 }
 

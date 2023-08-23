@@ -1,0 +1,9 @@
+syntax = "proto3";
+package cosmostalents.cosmostalents;
+
+option go_package = "github.com/cosmos-talents/cosmos-talents/x/cosmostalents/types";
+
+message Info {
+  uint64 nextId = 1; 
+  
+}
