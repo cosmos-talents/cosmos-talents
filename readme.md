@@ -67,3 +67,10 @@ The result is
 ```
 name: Hello, Alice
 ```
+
+## Store Game
+
+### Get a current next gameId
+```
+cosmos-talentsd query cosmostalents show-info
+```
