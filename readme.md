@@ -74,3 +74,9 @@ name: Hello, Alice
 ```
 cosmos-talentsd query cosmostalents show-info
 ```
+
+### Get a stored game
+
+```
+cosmos-talentsd query cosmostalents get-stored-game
+```
