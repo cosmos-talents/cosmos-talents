@@ -12,6 +12,10 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 	if genState.Info != nil {
 		k.SetInfo(ctx, *genState.Info)
 	}
+	// Set all the storedGame
+	for _, elem := range genState.StoredGameList {
+		k.SetStoredGame(ctx, elem)
+	}
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
@@ -26,6 +30,7 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	if found {
 		genesis.Info = &info
 	}
+	genesis.StoredGameList = k.GetAllStoredGame(ctx)
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis

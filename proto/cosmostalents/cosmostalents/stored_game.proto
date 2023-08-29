@@ -1,0 +1,14 @@
+syntax = "proto3";
+package cosmostalents.cosmostalents;
+
+option go_package = "github.com/cosmos-talents/cosmos-talents/x/cosmostalents/types";
+
+message StoredGame {
+  string index = 1; 
+  string board = 2; 
+  string turn = 3; 
+  string black = 4; 
+  string red = 5; 
+  
+}
+

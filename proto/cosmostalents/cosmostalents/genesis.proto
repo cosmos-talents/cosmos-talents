@@ -5,12 +5,14 @@ package cosmostalents.cosmostalents;
 import "gogoproto/gogo.proto";
 import "cosmostalents/cosmostalents/params.proto";
 import "cosmostalents/cosmostalents/info.proto";
+import "cosmostalents/cosmostalents/stored_game.proto";
 
 option go_package = "github.com/cosmos-talents/cosmos-talents/x/cosmostalents/types";
 
 // GenesisState defines the cosmostalents module's genesis state.
 message GenesisState {
-  Params params = 1 [(gogoproto.nullable) = false];
-  Info   info   = 2;
+           Params     params         = 1 [(gogoproto.nullable) = false];
+           Info       info           = 2;
+  repeated StoredGame storedGameList = 3 [(gogoproto.nullable) = false];
 }
 

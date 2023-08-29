@@ -7,6 +7,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "cosmostalents/cosmostalents/params.proto";
 import "cosmostalents/cosmostalents/info.proto";
+import "cosmostalents/cosmostalents/stored_game.proto";
 
 option go_package = "github.com/cosmos-talents/cosmos-talents/x/cosmostalents/types";
 
@@ -28,6 +29,16 @@ service Query {
   // Queries a Info by index.
   rpc Info (QueryGetInfoRequest) returns (QueryGetInfoResponse) {
     option (google.api.http).get = "/cosmos-talents/cosmos-talents/cosmostalents/info";
+  
+  }
+  
+  // Queries a list of StoredGame items.
+  rpc StoredGame    (QueryGetStoredGameRequest) returns (QueryGetStoredGameResponse) {
+    option (google.api.http).get = "/cosmos-talents/cosmos-talents/cosmostalents/stored_game/{index}";
+  
+  }
+  rpc StoredGameAll (QueryAllStoredGameRequest) returns (QueryAllStoredGameResponse) {
+    option (google.api.http).get = "/cosmos-talents/cosmos-talents/cosmostalents/stored_game";
   
   }
 }
@@ -53,5 +64,22 @@ message QueryGetInfoRequest {}
 
 message QueryGetInfoResponse {
   Info Info = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetStoredGameRequest {
+  string index = 1;
+}
+
+message QueryGetStoredGameResponse {
+  StoredGame storedGame = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllStoredGameRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllStoredGameResponse {
+  repeated StoredGame                             storedGame = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
